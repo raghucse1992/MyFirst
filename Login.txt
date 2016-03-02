@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Login page</title>
+    </head>
+    <body>
+        <h1>Simple Login Page</h1>
+        <form name="login">
+            Username<input type="text" name="userid"/>
+            Password<input type="password" name="pswrd"/>
+            <input type="button" onclick="check(this.form)" value="Login"/>
+            <input type="reset" value="Cancel"/>
+        </form>
+        <script language="javascript">
+            function check(form) {
+                if(form.userid.value == "admin" && form.pswrd.value == "admin") {
+                    window.open('admin.html')
+                }
+		elseif(form.userid.value == "scorer" && form.pswrd.value == "scorer") {
+			window.open('scorer.html')
+                else {
+                   window.open('display.html')
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<html>
+<head>
+<title> admin page</title>
+<body>
+<h1> team details: </h1>
+<form action="">
+<label> enter team name1:
+<input type="text" name="name1"/>
+</label>
+<label> enter team name2:
+<input type="text" name="name2"/>
+</label>
+<p><h2> add players: </h2>
+<label> choose team1:
+<select> name = "team">
+<option>Beluru</option>
+<option>keduru</option>
+</select>
+</label></p>
+<h1>A1:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A2:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A3:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A4:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A5:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A6:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A7:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A8:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A9:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A10:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>A11:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<label> choose team2:
+<select> name = "team">
+<option>Beluru</option>
+<option>keduru</option>
+</select>
+</label></p>
+<h1>B1:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B2:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B3:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B4:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B5:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B6:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B7:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B8:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B9:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B10:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>B11:</h1>
+<label>
+<input type="checkbox" name="name" value="one"/>captain</label>
+<label>
+<input type="checkbox" name="name" value="one"/>wicket keeper</label>
+<h1>match details</h>
+<p> team 1:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<h1>match details</h>
+<p> team 2:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<input type="submit"  value="submit"/>
+</form>
+</body>
+</html>
+
+
+

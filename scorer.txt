@@ -1,0 +1,114 @@
+<html>
+<head><title>Scorer details</title></head>
+<body>
+<h1>scorecard:</h1>
+<form action="">
+<h1>batting details</h1>
+<p>team name:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<p>select batsman1:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<p>select batsman2:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<label>batsman1:
+<input type="text"name="name"/></label>
+<label>batsman2:
+<input type="text"name="name"/></label>
+<h1>total:<h1>
+<input type="text" name="name"/>
+<h1>bowling details</h1>
+<p>team name:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<p>select bowler:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<label>over:
+<input type="text" name="name"/></label>
+<h1>wickets:</h1>
+<input type="text" name="name"/>
+<input type="submit"/>
+<input type="reset"/>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
