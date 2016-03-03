@@ -1,0 +1,338 @@
+  <!DOCTYPE html>
+    <html>
+    <head>
+
+        <title>Display Emp Details</title>
+
+        <script type="text/javascript" language="javascript">
+
+    	var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        	var fso = new ActiveXObject("Scripting.FileSystemObject");	
+        	var FILENAME='D:\\example.xml';
+
+
+
+    function SaveXMLData()
+    {
+     	validations();
+    }
+
+
+    function createfile()
+    {
+
+    	var file;
+
+        	var a1=document.getElementById('bat1score').value;
+        	var a2=document.getElementById('bat2score').value;
+		var a3=document.getElementById('total').value;
+		var a4=document.getElementById('over').value;
+		var a5=document.getElementById('wicket').value;
+        	
+        	var tablemain = document.getElementById('tblmain');
+
+    	if(fso.fileExists(FILENAME))
+        	{
+    		xmlDoc.load(FILENAME);
+        		var lng;
+        		lng=xmlDoc.getElementsByTagName("Details");
+
+        		var xmlread= fso.OpenTextFile(FILENAME,1,true,0);
+
+        		var x=xmlread.readAll();
+        		var replace=x.replace('</scorer>','');
+        		var sno=lng.length + 1;
+        		file=fso.OpenTextFile(FILENAME,2,true);
+
+        		file.writeLine(replace);
+
+        		file.WriteLine('<Details category="'+sno+'">');
+        		file.WriteLine('<SNo>'+sno+'</SNo>');
+        		file.WriteLine('<bat1score>'+a1+'</bat1score>');
+			file.WriteLine('<batscore2>'+a2+'</batscore2>');
+        		file.WriteLine('<total>'+a3+'</total>');	
+        		file.WriteLine('<over>'+a4+'</over>');
+        		file.WriteLine('<wicket>'+a5+'</wicket>');
+        		file.WriteLine('</Details>');
+        		file.WriteLine('</scorer>');
+        		
+    		alert('another file updated');
+        	}
+        	else
+        	{
+
+        		file= fso.CreateTextFile(FILENAME, true);
+        		file.WriteLine('<?xml version="1.0" encoding="utf-8" ?>');
+    			file.WriteLine('<?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?>');
+        		file.WriteLine('<admin>');
+        		file.WriteLine('<Details category="1">');
+        		file.WriteLine('<SNo>'+1+'</SNo>');
+        		file.WriteLine('<batscore1>'+a1+'</batscore1>');
+        		file.WriteLine('<bat2score>'+a2+'</bat2score>');
+			file.WriteLine('<total>'+a3+'</total>');
+        		file.WriteLine('<wicket>'+a4+'</wicket>');
+			file.WriteLine('<over>'+a5+'</over>');
+			file.WriteLine('</Details>');
+        		file.WriteLine('</score>');     
+
+    		alert('file updated');
+        	}
+
+    	<!-- displayData();-->
+
+    	document.getElementById('bat1score').value='';
+    	document.getElementById('bat2score2').value='';
+    	document.getElementById('total').value='';
+	document.getElementById('wicket').value='';   
+	document.getElementById('over').value=''; 
+	addRow('tablemain');
+    	file.close();
+    }
+
+    function addRow(id) 
+    {
+
+        if(fso.fileExists(FILENAME))
+        {
+
+    	xmlDoc.load(FILENAME);
+        	var x;
+        	x=xmlDoc.getElementsByTagName("Details");
+
+            var table = document.getElementById('tbl');        
+
+
+
+    	var nxtbtn= document.getElementById("btnnext");
+    	var prvbtn=document.getElementById("btnprev");
+    	nxtbtn.disabled=true;
+    	prvbtn.disabled=true;
+    	if(x.length >2)
+    	{
+    		nxtbtn.disabled=false;
+    	}
+    	var j=0;k=2;
+    	if(k>x.length)
+    	{k=x.length;}
+
+    	var store=document.getElementById("txtstore");
+    	var maxval=document.getElementById("txtmax");
+
+    	if(id=="btnprev")
+    	{        
+    		if((store.value % k)==0)
+    		{
+    			store.value = store.value - k ;
+    			if(store.value>0)
+    			{
+    				j = parseInt(store.value);
+    				k += parseInt(store.value);
+    			}
+    		}
+    		else
+    		{
+    			store.value =store.value - (store.value % k) ;
+
+    			if(store.value >0)
+    			{
+    				j = store.value - k;
+    				k = store.value;
+    			}
+    	
+    		}
+    	
+    		if(j > 0)
+    		{
+    			prvbtn.disabled=false;
+    		}
+
+    	}
+    	if(id=="btnnext")
+    	{
+    		if(store.value==0)
+    		{
+    			store.value=table.rows.length;
+    		}
+    		else if(store.value <0)
+    		{
+    			store.value=maxval.value;
+    		}
+    		prvbtn.disabled=false;
+    	    	if(store.value >=k)
+    		{
+    			j +=parseInt(store.value);
+    			k +=parseInt(store.value);
+    			if(k >= x.length)
+    			{
+    				k=x.length;
+    				nxtbtn.disabled = true;
+    				prvbtn.disabled = false;
+    			}
+    		}
+    	}
+
+    	table.innerHTML = "";
+    	var rowCount = 0;
+
+         	for (i=j;i<k;i++)
+    	{
+         
+            	var row = table.insertRow(rowCount);
+
+    	        var cell1 = row.insertCell(0);
+            	var element1 = document.createElement("input");
+    	        element1.type = "checkbox";
+    	        element1.id =  "id2" ;
+            	cell1.appendChild(element1);
+
+    	        // Create label
+            	var label = document.createElement("label");
+    	        label.htmlFor =  "id2" ;
+            	cell1.appendChild(label);
+
+    	        var cell2 = row.insertCell(1);
+            	cell2.innerHTML = x[i].getElementsByTagName("SNo")[0].childNodes[0].nodeValue;
+
+    	        var teamname1 = row.insertCell(2);
+            	var elname =document.createElement("input");
+    	        elname.type = "text";
+    		elname.readOnly=true;
+    		elname.value=x[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+    	        name.appendChild(elname);
+		
+		var teamname2 = row.insertCell(2);
+            	var elname =document.createElement("input");
+    	        elname.type = "text";
+    		elname.readOnly=true;
+    		elname.value=x[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+    	        name.appendChild(elname);
+
+
+    	        
+    	
+    		rowCount +=1;
+         	}
+    	maxval.value=x[table.rows.length - 1].getElementsByTagName("SNo")[0].childNodes[0].nodeValue;
+
+    	if(id=="btnprev")
+    	{
+    	 store.value =store.value - 5;
+    	}
+    	 else
+    	{
+        	 store.value =parseInt(k);
+    	}
+       }
+    }
+
+</script>
+</head>
+<body onload="addRow('')">
+<h1>scorecard:</h1>
+<form action="">
+<h1>batting details</h1>
+<p>team name:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<p>select batsman1:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<p>select batsman2:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<label>batsman1:
+<input type="text"name="name"/></label>
+<label>batsman2:
+<input type="text"name="name"/></label>
+<h1>total:<h1>
+<input type="text" name="name"/>
+<h1>bowling details</h1>
+<p>team name:</p>
+<select name="team">
+<option>Beluru</option>
+<option>Keduru</keduru>
+</select>
+<p>select bowler:</p>
+<select name="player">
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+<option>A5</option>
+<option>A6</option>
+<option>A7</option>
+<option>A8</option>
+<option>A9</option>
+<option>A10</option>
+<option>A11</option>
+<option>B1</option>
+<option>B2</option>
+<option>B3</option>
+<option>B4</option>
+<option>B5</option>
+<option>B6</option>
+<option>B7</option>
+<option>B8</option>
+<option>B9</option>
+<option>B10</option>
+<option>B11</option>
+</select>
+<label>over:
+<input type="text" name="name"/></label>
+<h1>wickets:</h1>
+<input type="text" name="name"/>
+<input type="button" value="Submit" onclick="SaveXMLData()"/>
+<input type="button" value="Show Data" id="show" onclick="displayData(this.id)" style="display:none;"/>
+<input type="button" id="btnprev" value="Prev" onclick="addRow(this.id)" disabled="disabled">
+<input type="button" id="btnnext" value="Next" onclick="addRow(this.id)" disabled="disabled">
+<input type="hidden" id="txtstore" style="display:none;">
+<input type="hidden" id="txtmax" style="display:none;">
+</body>
+</html>
+        
